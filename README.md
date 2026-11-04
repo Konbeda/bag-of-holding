@@ -57,6 +57,8 @@ cp .env.example .env
 npm run web
 ```
 
+Em desenvolvimento, os componentes da interface podem ser vistos em `http://localhost:8081/design`.
+
 ## Testes e qualidade
 
 ```bash

@@ -1,13 +1,25 @@
-import { Text, View } from 'react-native';
+import { Link } from 'expo-router';
+import { View } from 'react-native';
+
+import { Badge, Button, Logo, Text } from '@/components/ui';
 
 export default function HomeScreen() {
   return (
-    <View className="flex-1 items-center justify-center gap-2 bg-white px-4">
-      <Text className="text-3xl font-semibold text-ink">Bag of Holding</Text>
-      <Text className="text-base text-ink-muted">Tudo para a sua próxima aventura.</Text>
-      <View className="mt-4 rounded-md bg-primary px-4 py-2">
-        <Text className="text-sm font-medium text-white">Em construção</Text>
-      </View>
+    <View className="flex-1 items-center justify-center gap-4 bg-white px-4">
+      <Logo />
+      <Text variant="body" tone="muted" className="text-center">
+        Tudo para a sua próxima aventura.
+      </Text>
+      <Badge tone="primary" className="self-center">
+        Em construção
+      </Badge>
+      {__DEV__ && (
+        <Link href="/design" asChild>
+          <Button variant="secondary" size="sm" className="self-center">
+            Ver design system
+          </Button>
+        </Link>
+      )}
     </View>
   );
 }

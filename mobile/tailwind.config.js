@@ -1,17 +1,20 @@
+const { colors } = require('./src/theme/tokens');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{ts,tsx}'],
   presets: [require('nativewind/preset')],
+  // Each Inter weight is its own font family, so font-medium and friends must only set the family
+  corePlugins: { fontWeight: false },
   theme: {
-    extend: {
-      colors: {
-        primary: { DEFAULT: '#4C1D95', hover: '#5B21B6', soft: '#F3EEFC' },
-        ink: { DEFAULT: '#18181B', muted: '#71717A' },
-        line: '#E4E4E7',
-        surface: '#FAFAFA',
-      },
+    fontFamily: {
+      sans: ['Inter_400Regular'],
+      medium: ['Inter_500Medium'],
+      semibold: ['Inter_600SemiBold'],
+      bold: ['Inter_700Bold'],
     },
+    extend: { colors },
   },
   plugins: [],
 };

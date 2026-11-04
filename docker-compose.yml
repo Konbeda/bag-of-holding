@@ -1,0 +1,40 @@
+name: bag-of-holding
+
+services:
+  app:
+    build: ./docker/php
+    volumes:
+      - ./backend:/var/www/html
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  nginx:
+    image: nginx:1.29-alpine
+    ports:
+      - "8000:80"
+    volumes:
+      - ./backend:/var/www/html:ro
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+
+  mysql:
+    image: mysql:8.4
+    ports:
+      - "33060:3306"
+    environment:
+      MYSQL_DATABASE: bag_of_holding
+      MYSQL_USER: bag_of_holding
+      MYSQL_PASSWORD: local_dev_only
+      MYSQL_ROOT_PASSWORD: local_dev_only
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u$$MYSQL_USER -p$$MYSQL_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  mysql-data:

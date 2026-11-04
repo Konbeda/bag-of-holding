@@ -10,11 +10,20 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
+import { Platform } from 'react-native';
 
 import { Toaster } from '@/components/ui';
+import { expireSession } from '@/features/auth/actions';
+import { restoreSession } from '@/features/auth/session';
+import { setUnauthorizedHandler } from '@/lib/api';
 import { queryClient } from '@/lib/query-client';
 
 SplashScreen.preventAutoHideAsync();
+
+if (Platform.OS === 'web') document.documentElement.lang = 'pt-BR';
+
+setUnauthorizedHandler(expireSession);
+restoreSession();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({ Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold });

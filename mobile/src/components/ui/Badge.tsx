@@ -7,6 +7,7 @@ import { Text } from './Text';
 const tones = {
   neutral: { box: 'bg-surface border border-line', text: 'secondary' },
   primary: { box: 'bg-primary-soft', text: 'primary' },
+  accent: { box: 'bg-primary', text: 'inverse' },
   success: { box: 'bg-success-soft', text: 'success' },
   warning: { box: 'bg-warning-soft', text: 'warning' },
   danger: { box: 'bg-danger-soft', text: 'danger' },

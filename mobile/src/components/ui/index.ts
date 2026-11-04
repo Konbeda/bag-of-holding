@@ -12,6 +12,8 @@ export { Logo } from './Logo';
 export { Price } from './Price';
 export { QuantityStepper } from './QuantityStepper';
 export { RadioOption } from './RadioOption';
+export { Select } from './Select';
+export { Sheet } from './Sheet';
 export { Skeleton } from './Skeleton';
 export { Text } from './Text';
 export { showToast, Toaster } from './Toast';

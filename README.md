@@ -34,8 +34,10 @@ docker compose exec app php artisan key:generate
 ```
 
 ```bash
-docker compose exec app php artisan migrate
+docker compose exec app php artisan migrate --seed
 ```
+
+O seed cria 40 produtos e duas contas locais, ambas com a senha `password`: `admin@bagofholding.test` e `cliente@bagofholding.test`.
 
 ### Site e app
 
@@ -59,6 +61,12 @@ npm run web
 
 ```bash
 docker compose exec app php artisan test
+```
+
+O teste de concorrência do estoque roda à parte, em MySQL de verdade:
+
+```bash
+docker compose exec app vendor/bin/pest --configuration=phpunit.mysql.xml
 ```
 
 ```bash

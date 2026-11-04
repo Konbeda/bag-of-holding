@@ -24,7 +24,7 @@ it('returns the authenticated user', function () {
     $user = User::factory()->create();
     Sanctum::actingAs($user);
 
-    $this->getJson('/api/v1/me')->assertOk()->assertJsonPath('email', $user->email);
+    $this->getJson('/api/v1/me')->assertOk()->assertJsonPath('data.email', $user->email);
 });
 
 it('translates validation messages to portuguese', function () {

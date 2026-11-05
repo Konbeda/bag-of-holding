@@ -26,7 +26,7 @@ export function BottomNav() {
       style={{ paddingBottom: insets.bottom }}
     >
       {tabs.map(({ href, label, icon: Icon }) => {
-        const active = pathname === href;
+        const active = pathname === href || (href === '/account' && /^\/(orders|addresses)/.test(pathname));
         const badge = href === '/cart' ? count : 0;
 
         return (

@@ -1,13 +1,43 @@
 import { Link } from 'expo-router';
-import { LogOut, UserRound } from 'lucide-react-native';
+import { ChevronRight, LogOut, type LucideIcon, MapPin, Package, UserRound } from 'lucide-react-native';
 import { useState } from 'react';
-import { ScrollView, View } from 'react-native';
+import { Pressable, ScrollView, View } from 'react-native';
 
 import { PageTitle } from '@/components/shop/PageTitle';
 import { Footer } from '@/components/shop/Footer';
-import { Button, Card, Container, D20Loader, EmptyState, Text } from '@/components/ui';
+import { Button, Container, D20Loader, EmptyState, Text } from '@/components/ui';
 import { signOut } from '@/features/auth/actions';
 import { useSession } from '@/features/auth/session';
+import { colors } from '@/theme';
+
+type AccountLinkProps = {
+  href: '/orders' | '/addresses';
+  icon: LucideIcon;
+  title: string;
+  description: string;
+};
+
+function AccountLink({ href, icon: Icon, title, description }: AccountLinkProps) {
+  return (
+    <Link href={href} asChild>
+      <Pressable
+        role="link"
+        className="flex-row items-center gap-3 rounded-lg border border-line bg-white p-4 hover:bg-surface active:bg-surface web:outline-none web:focus-visible:ring-2 web:focus-visible:ring-primary"
+      >
+        <Icon size={20} color={colors.ink.secondary} />
+        <View className="flex-1 gap-0.5">
+          <Text variant="small" weight="medium">
+            {title}
+          </Text>
+          <Text variant="small" tone="muted">
+            {description}
+          </Text>
+        </View>
+        <ChevronRight size={18} color={colors.ink.muted} />
+      </Pressable>
+    </Link>
+  );
+}
 
 export default function AccountScreen() {
   const user = useSession((state) => state.user);
@@ -41,13 +71,15 @@ export default function AccountScreen() {
           </EmptyState>
         )}
         {user && (
-          <Card className="max-w-md gap-4 p-4">
+          <View className="max-w-md gap-4">
             <View className="gap-1">
               <Text variant="h3">{user.name}</Text>
               <Text variant="small" tone="muted">
                 {user.email}
               </Text>
             </View>
+            <AccountLink href="/orders" icon={Package} title="Meus pedidos" description="Acompanhe as suas compras." />
+            <AccountLink href="/addresses" icon={MapPin} title="Endereços" description="Gerencie onde receber os pedidos." />
             <Button
               variant="secondary"
               icon={LogOut}
@@ -60,7 +92,7 @@ export default function AccountScreen() {
             >
               Sair
             </Button>
-          </Card>
+          </View>
         )}
       </Container>
       <Footer />

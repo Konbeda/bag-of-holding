@@ -54,7 +54,7 @@ export function Input({
           aria-invalid={Boolean(error)}
           placeholderTextColor={colors.ink.muted}
           secureTextEntry={secureTextEntry && !revealed}
-          className="flex-1 py-2.5 font-sans text-base leading-5 text-ink web:outline-none"
+          className="min-w-0 flex-1 py-2.5 font-sans text-base leading-5 text-ink web:outline-none"
           onFocus={(event) => {
             setFocused(true);
             onFocus?.(event);

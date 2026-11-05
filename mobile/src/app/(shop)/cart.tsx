@@ -17,7 +17,6 @@ import {
   IconButton,
   Price,
   QuantityStepper,
-  showToast,
   Text,
 } from '@/components/ui';
 import { useSession } from '@/features/auth/session';
@@ -79,8 +78,8 @@ export default function CartScreen() {
   const canCheckout = lines.length > 0 && lines.every((line) => line.isAvailable);
 
   const checkout = () => {
-    if (signedIn) showToast('O checkout chega na próxima etapa do projeto.');
-    else router.push({ pathname: '/login', params: { redirect: '/cart' } });
+    if (signedIn) router.push('/checkout');
+    else router.push({ pathname: '/login', params: { redirect: '/checkout' } });
   };
 
   let content;

@@ -43,5 +43,5 @@ export async function signOut() {
 
 export async function expireSession() {
   await clearSession();
-  queryClient.removeQueries({ queryKey: ['cart'] });
+  for (const queryKey of [['cart'], ['orders'], ['addresses']]) queryClient.removeQueries({ queryKey });
 }

@@ -1,0 +1,12 @@
+.git
+.github
+.claude
+docs
+mobile
+backend/.env
+backend/vendor
+backend/public/images/products
+backend/storage/logs/*.log
+backend/storage/framework/cache/data/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*

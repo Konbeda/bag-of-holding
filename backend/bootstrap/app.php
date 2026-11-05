@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Middleware\EnsureUserIsAdmin;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -16,7 +20,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->alias(['admin' => EnsureUserIsAdmin::class]);
+
+        // Behind a hosting proxy this makes generated URLs, such as product images, use https
+        $middleware->trustProxies(at: env('TRUSTED_PROXIES'));
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
@@ -31,4 +38,18 @@ return Application::configure(basePath: dirname(__DIR__))
         $exceptions->render(fn (NotFoundHttpException $e, Request $request) => $request->is('api/*')
             ? response()->json(['message' => __('Not Found')], 404)
             : null);
+
+        $exceptions->render(fn (TooManyRequestsHttpException $e, Request $request) => $request->is('api/*')
+            ? response()->json(['message' => 'Muitas tentativas. Aguarde um pouco e tente novamente.'], 429, $e->getHeaders())
+            : null);
+
+        $exceptions->render(fn (AccessDeniedHttpException $e, Request $request) => $request->is('api/*')
+            ? response()->json(['message' => __($e->getMessage())], 403)
+            : null);
+
+        $exceptions->respond(fn (Response $response, Throwable $e, Request $request) => $request->is('api/*')
+            && $response->getStatusCode() >= 500
+            && ! config('app.debug')
+            ? response()->json(['message' => 'Algo deu errado. Tente novamente.'], $response->getStatusCode())
+            : $response);
     })->create();

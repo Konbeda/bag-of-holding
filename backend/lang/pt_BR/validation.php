@@ -174,8 +174,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'compare_at_price_cents' => [
+            'gt' => 'O preço anterior deve ser maior que o preço atual.',
         ],
     ],
 
@@ -191,6 +191,22 @@ return [
     */
 
     'attributes' => [
+        'slug' => 'endereço na loja',
+        'zip_code' => 'CEP',
+        'recipient' => 'destinatário',
+        'street' => 'rua',
+        'number' => 'número',
+        'complement' => 'complemento',
+        'district' => 'bairro',
+        'address_id' => 'endereço',
+        'payment_method' => 'forma de pagamento',
+        'product_id' => 'produto',
+        'quantity' => 'quantidade',
+        'price_cents' => 'preço',
+        'compare_at_price_cents' => 'preço anterior',
+        'stock' => 'estoque',
+        'category_id' => 'categoria',
+        'brand_id' => 'marca',
         'address' => 'endereço',
         'age' => 'idade',
         'body' => 'conteúdo',
@@ -215,13 +231,11 @@ return [
         'zipcode' => 'cep',
         'company_name' => 'razão social',
         'neighborhood' => 'bairro',
-        'number' => 'número',
         'password' => 'senha',
         'phone' => 'telefone',
         'second' => 'segundo',
         'sex' => 'sexo',
         'state' => 'estado',
-        'street' => 'rua',
         'subject' => 'assunto',
         'text' => 'texto',
         'time' => 'hora',
@@ -231,7 +245,6 @@ return [
         'description' => 'descrição',
         'password_confirmation' => 'confirmação da senha',
         'current_password' => 'senha atual',
-        'complement' => 'complemento',
         'modality' => 'modalidade',
         'category' => 'categoria',
         'blood_type' => 'tipo sanguíneo',

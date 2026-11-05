@@ -15,6 +15,10 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'demo_password' => env('DEMO_PASSWORD', 'password'),
+
+    'demo_reset' => (bool) env('DEMO_RESET', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

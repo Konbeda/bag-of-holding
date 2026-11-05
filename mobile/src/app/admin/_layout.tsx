@@ -1,5 +1,5 @@
 import { Link, Redirect, Stack, usePathname } from 'expo-router';
-import { ShieldAlert } from 'lucide-react-native';
+import { ShieldAlert } from '@/lib/icons';
 import { View } from 'react-native';
 
 import { AdminLoader } from '@/components/admin/AdminPage';

@@ -10,7 +10,7 @@ import { formatBRL } from '@/lib/format';
 
 function Stat({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
-    <Card className="min-w-52 flex-1 gap-1 p-4">
+    <Card className="grow basis-full gap-1 p-4 md:basis-[45%] xl:basis-[22%]">
       <Text variant="small" tone="muted">
         {label}
       </Text>

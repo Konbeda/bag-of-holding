@@ -2,6 +2,9 @@
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Order;
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 it('lists only active products with pagination', function () {
     product(['name' => 'Ativo']);
@@ -84,4 +87,19 @@ it('seeds the catalog with forty products', function () {
     $this->getJson('/api/v1/products?per_page=1')->assertJsonPath('meta.total', 40);
     $this->seed();
     $this->getJson('/api/v1/products?per_page=1')->assertJsonPath('meta.total', 40);
+});
+
+it('seeds demo orders once without touching stock', function () {
+    $this->seed();
+
+    $orders = Order::count();
+    $stock = Product::sum('stock');
+
+    expect($orders)->toBeGreaterThan(10)
+        ->and(Order::whereColumn('total_cents', '!=', DB::raw('subtotal_cents + shipping_cents'))->count())->toBe(0);
+
+    $this->seed();
+
+    expect(Order::count())->toBe($orders)
+        ->and((int) Product::sum('stock'))->toBe((int) $stock);
 });

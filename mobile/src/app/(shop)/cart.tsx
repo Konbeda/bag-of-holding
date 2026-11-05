@@ -1,5 +1,5 @@
 import { Link, router } from 'expo-router';
-import { ShoppingBag, Trash2 } from 'lucide-react-native';
+import { ShoppingBag, Trash2 } from '@/lib/icons';
 import { Pressable, ScrollView, View } from 'react-native';
 
 import { PageTitle } from '@/components/shop/PageTitle';

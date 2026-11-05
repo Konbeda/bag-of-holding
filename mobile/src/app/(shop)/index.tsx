@@ -9,7 +9,7 @@ import {
   Swords,
   Tag,
   Truck,
-} from 'lucide-react-native';
+} from '@/lib/icons';
 import type { ReactNode } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 

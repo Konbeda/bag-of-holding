@@ -1,5 +1,5 @@
 import { Link, router, usePathname } from 'expo-router';
-import { ClipboardList, LayoutDashboard, LogOut, type LucideIcon, Package, Store } from 'lucide-react-native';
+import { ClipboardList, LayoutDashboard, LogOut, type LucideIcon, Package, Store } from '@/lib/icons';
 import { Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 

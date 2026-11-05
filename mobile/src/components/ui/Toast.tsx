@@ -1,4 +1,4 @@
-import { CircleAlert, CircleCheck, Info } from 'lucide-react-native';
+import { CircleAlert, CircleCheck, Info } from '@/lib/icons';
 import { useEffect } from 'react';
 import { View } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';

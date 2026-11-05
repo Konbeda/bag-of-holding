@@ -1,4 +1,4 @@
-import { MapPin, Pencil, Plus, Trash2 } from 'lucide-react-native';
+import { MapPin, Pencil, Plus, Trash2 } from '@/lib/icons';
 import { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 

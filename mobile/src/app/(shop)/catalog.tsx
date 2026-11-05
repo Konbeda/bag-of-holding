@@ -1,5 +1,5 @@
 import { router, useLocalSearchParams } from 'expo-router';
-import { PackageSearch, SlidersHorizontal } from 'lucide-react-native';
+import { PackageSearch, SlidersHorizontal } from '@/lib/icons';
 import { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 

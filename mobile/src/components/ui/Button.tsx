@@ -1,4 +1,4 @@
-import type { LucideIcon } from 'lucide-react-native';
+import type { LucideIcon } from '@/lib/icons';
 import { ActivityIndicator, Pressable, type PressableProps } from 'react-native';
 
 import { cn } from '@/lib/cn';

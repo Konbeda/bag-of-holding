@@ -24,13 +24,13 @@ class DatabaseSeeder extends Seeder
             'is_default' => true,
         ]);
 
-        $this->call(CatalogSeeder::class);
+        $this->call([CatalogSeeder::class, DemoOrderSeeder::class]);
     }
 
     private function seedUser(string $name, string $email, UserRole $role): User
     {
         $user = User::firstOrNew(['email' => $email]);
-        $user->forceFill(['name' => $name, 'password' => 'password', 'role' => $role])->save();
+        $user->forceFill(['name' => $name, 'password' => config('app.demo_password'), 'role' => $role])->save();
 
         return $user;
     }

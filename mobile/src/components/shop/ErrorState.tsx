@@ -1,4 +1,4 @@
-import { CloudOff } from 'lucide-react-native';
+import { CloudOff } from '@/lib/icons';
 
 import { Button, EmptyState } from '@/components/ui';
 

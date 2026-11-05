@@ -1,5 +1,5 @@
 import { Link } from 'expo-router';
-import { Compass } from 'lucide-react-native';
+import { Compass } from '@/lib/icons';
 import { View } from 'react-native';
 
 import { PageTitle } from '@/components/shop/PageTitle';

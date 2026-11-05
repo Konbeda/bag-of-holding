@@ -1,5 +1,5 @@
 import { Link, router, useLocalSearchParams } from 'expo-router';
-import { ChevronRight, ClipboardList } from 'lucide-react-native';
+import { ChevronRight, ClipboardList } from '@/lib/icons';
 import { Pressable, View } from 'react-native';
 
 import { AdminLoader, AdminPage } from '@/components/admin/AdminPage';

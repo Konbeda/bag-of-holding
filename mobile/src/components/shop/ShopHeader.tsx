@@ -1,5 +1,5 @@
 import { Link, router, useGlobalSearchParams } from 'expo-router';
-import { ArrowLeft, ShoppingBag, UserRound } from 'lucide-react-native';
+import { ArrowLeft, ShoppingBag, UserRound } from '@/lib/icons';
 import { Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 

@@ -1,5 +1,5 @@
 import { Link, Redirect, router } from 'expo-router';
-import { Plus } from 'lucide-react-native';
+import { Plus } from '@/lib/icons';
 import { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 

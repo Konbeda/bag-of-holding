@@ -1,4 +1,4 @@
-import { Check } from 'lucide-react-native';
+import { Check } from '@/lib/icons';
 import { Fragment } from 'react';
 import { View } from 'react-native';
 

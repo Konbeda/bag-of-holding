@@ -1,4 +1,4 @@
-import { Eye, EyeOff, type LucideIcon } from 'lucide-react-native';
+import { Eye, EyeOff, type LucideIcon } from '@/lib/icons';
 import { useState } from 'react';
 import { TextInput, type TextInputProps, View } from 'react-native';
 

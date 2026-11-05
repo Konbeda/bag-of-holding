@@ -1,5 +1,5 @@
 import { Redirect } from 'expo-router';
-import { Bell, CreditCard, Mail, PackageSearch, Search, ShoppingBag, Trash2 } from 'lucide-react-native';
+import { Bell, CreditCard, Mail, PackageSearch, Search, ShoppingBag, Trash2 } from '@/lib/icons';
 import { type ReactNode, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 

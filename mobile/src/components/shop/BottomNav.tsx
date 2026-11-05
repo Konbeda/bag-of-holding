@@ -1,5 +1,5 @@
 import { Link, usePathname } from 'expo-router';
-import { Home, LayoutGrid, type LucideIcon, ShoppingBag, UserRound } from 'lucide-react-native';
+import { Home, LayoutGrid, type LucideIcon, ShoppingBag, UserRound } from '@/lib/icons';
 import { Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 

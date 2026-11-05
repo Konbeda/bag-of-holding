@@ -1,4 +1,4 @@
-import { X } from 'lucide-react-native';
+import { X } from '@/lib/icons';
 import type { ReactNode } from 'react';
 import { Modal, Pressable, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';

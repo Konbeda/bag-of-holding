@@ -1,5 +1,5 @@
 import { Link, useLocalSearchParams } from 'expo-router';
-import { CheckCircle2, PackageX } from 'lucide-react-native';
+import { CheckCircle2, PackageX } from '@/lib/icons';
 import { ScrollView, View } from 'react-native';
 
 import { AddressLines } from '@/components/shop/AddressLines';

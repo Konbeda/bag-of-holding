@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import { Link, router, useLocalSearchParams } from 'expo-router';
-import { Boxes, PackageSearch, Pencil, Plus, Trash2 } from 'lucide-react-native';
+import { Boxes, PackageSearch, Pencil, Plus, Trash2 } from '@/lib/icons';
 import { useState } from 'react';
 import { View } from 'react-native';
 

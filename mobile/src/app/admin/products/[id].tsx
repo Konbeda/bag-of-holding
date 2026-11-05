@@ -1,5 +1,5 @@
 import { Link, router, useLocalSearchParams } from 'expo-router';
-import { PackageX } from 'lucide-react-native';
+import { PackageX } from '@/lib/icons';
 
 import { AdminLoader, AdminPage } from '@/components/admin/AdminPage';
 import { ProductForm } from '@/components/admin/ProductForm';

@@ -6,13 +6,13 @@ import { AddressLines } from '@/components/shop/AddressLines';
 import { ErrorState } from '@/components/shop/ErrorState';
 import { Footer } from '@/components/shop/Footer';
 import { OrderStatusBadge, OrderTimeline } from '@/components/shop/OrderStatus';
+import { OrderSummary } from '@/components/shop/OrderSummary';
 import { PageTitle } from '@/components/shop/PageTitle';
 import { RequireAuth } from '@/components/shop/RequireAuth';
-import { SummaryRow } from '@/components/shop/SummaryRow';
-import { Button, Card, Container, D20Loader, Divider, EmptyState, Text } from '@/components/ui';
+import { Button, Card, Container, D20Loader, EmptyState, Text } from '@/components/ui';
 import { useOrder } from '@/features/orders/queries';
 import { ApiError } from '@/lib/api';
-import { formatBRL, formatDate } from '@/lib/format';
+import { formatDate } from '@/lib/format';
 import { colors } from '@/theme';
 
 function OrderDetail({ number, placed }: { number: string; placed: boolean }) {
@@ -78,27 +78,7 @@ function OrderDetail({ number, placed }: { number: string; placed: boolean }) {
       )}
 
       <View className="gap-6 md:flex-row md:items-start">
-        <Card className="gap-3 p-4 md:flex-1">
-          <Text variant="h3">Itens</Text>
-          {order.items.map((item) => (
-            <View key={item.product_id} className="flex-row justify-between gap-3">
-              <View className="shrink gap-0.5">
-                <Text variant="small" weight="medium">
-                  {item.product_name}
-                </Text>
-                <Text variant="caption" tone="muted">
-                  {`${item.quantity}x ${formatBRL(item.unit_price_cents)}`}
-                </Text>
-              </View>
-              <Text variant="small">{formatBRL(item.line_total_cents)}</Text>
-            </View>
-          ))}
-          <Divider />
-          <SummaryRow label="Subtotal" cents={order.subtotal_cents} />
-          <SummaryRow label="Frete" cents={order.shipping_cents} />
-          <Divider />
-          <SummaryRow label="Total" cents={order.total_cents} emphasized />
-        </Card>
+        <OrderSummary order={order} className="md:flex-1" />
 
         <View className="gap-6 md:w-80">
           <Card className="gap-3 p-4">

@@ -15,5 +15,6 @@ export { RadioOption } from './RadioOption';
 export { Select } from './Select';
 export { Sheet } from './Sheet';
 export { Skeleton } from './Skeleton';
+export { SwitchField } from './SwitchField';
 export { Text } from './Text';
 export { showToast, Toaster } from './Toast';

@@ -1,5 +1,5 @@
 import { Link } from 'expo-router';
-import { ChevronRight, LogOut, type LucideIcon, MapPin, Package, UserRound } from 'lucide-react-native';
+import { ChevronRight, LayoutDashboard, LogOut, type LucideIcon, MapPin, Package, UserRound } from 'lucide-react-native';
 import { useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 
@@ -11,7 +11,7 @@ import { useSession } from '@/features/auth/session';
 import { colors } from '@/theme';
 
 type AccountLinkProps = {
-  href: '/orders' | '/addresses';
+  href: '/admin' | '/orders' | '/addresses';
   icon: LucideIcon;
   title: string;
   description: string;
@@ -78,6 +78,14 @@ export default function AccountScreen() {
                 {user.email}
               </Text>
             </View>
+            {user.role === 'admin' && (
+              <AccountLink
+                href="/admin"
+                icon={LayoutDashboard}
+                title="Painel administrativo"
+                description="Gerencie produtos, estoque e pedidos."
+              />
+            )}
             <AccountLink href="/orders" icon={Package} title="Meus pedidos" description="Acompanhe as suas compras." />
             <AccountLink href="/addresses" icon={MapPin} title="Endereços" description="Gerencie onde receber os pedidos." />
             <Button

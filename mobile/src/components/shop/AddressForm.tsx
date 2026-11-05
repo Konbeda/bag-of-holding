@@ -1,13 +1,12 @@
 import { useRef, useState } from 'react';
-import { Switch, View } from 'react-native';
+import { View } from 'react-native';
 
-import { Button, Input, Text } from '@/components/ui';
+import { Button, Input, SwitchField, Text } from '@/components/ui';
 import { type Address, useAddresses, useSaveAddress } from '@/features/addresses/queries';
 import { lookupZipCode } from '@/features/addresses/viacep';
 import { useSession } from '@/features/auth/session';
 import { ApiError, fieldError } from '@/lib/api';
 import { formatZipCode } from '@/lib/format';
-import { colors } from '@/theme';
 
 type AddressFormProps = {
   address?: Address;
@@ -158,20 +157,7 @@ export function AddressForm({ address, submitLabel, onSaved }: AddressFormProps)
           className="w-20"
         />
       </View>
-      {canChooseDefault && (
-        <View className="flex-row items-center justify-between gap-3">
-          <Text variant="small" weight="medium">
-            Usar como endereço principal
-          </Text>
-          <Switch
-            aria-label="Usar como endereço principal"
-            value={isDefault}
-            onValueChange={setIsDefault}
-            trackColor={{ true: colors.primary.DEFAULT, false: colors.line.strong }}
-            thumbColor="#FFFFFF"
-          />
-        </View>
-      )}
+      {canChooseDefault && <SwitchField label="Usar como endereço principal" value={isDefault} onChange={setIsDefault} />}
       {generalError && (
         <Text role="alert" variant="small" tone="danger">
           {generalError}

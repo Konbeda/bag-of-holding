@@ -174,8 +174,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'compare_at_price_cents' => [
+            'gt' => 'O preço anterior deve ser maior que o preço atual.',
         ],
     ],
 
@@ -191,6 +191,7 @@ return [
     */
 
     'attributes' => [
+        'slug' => 'endereço na loja',
         'zip_code' => 'CEP',
         'recipient' => 'destinatário',
         'street' => 'rua',
